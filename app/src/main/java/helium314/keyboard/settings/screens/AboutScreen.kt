@@ -101,10 +101,31 @@ fun createAboutSettings(context: Context) = listOf(
             name = it.title,
             description = it.description,
             onClick = {
-                val intent = Intent()
-                intent.data = Links.LICENSE.toUri()
-                intent.action = Intent.ACTION_VIEW
-                ctx.startActivity(intent)
+                val message = """
+                    Ill Eagle is an offline, rule-based custom Android keyboard derived from HeliBoard 4.2-beta1 / AOSP LatinIME.
+
+                    Licensing Requirements & Open Source Credits:
+                    • Ill Eagle & HeliBoard / OpenBoard: GNU General Public License v3.0 (GPL-3.0-only).
+                    • Android Open Source Project (AOSP) LatinIME: Apache License 2.0.
+                    • Bengali Khipro Input Method: MIT License (Copyright 2024 rank_coder).
+                    • Emoji Regex Pattern: MIT License.
+                    • Launcher Artwork: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
+
+                    Source Code Access:
+                    Full corresponding source code for this app is available on GitHub at:
+                    https://github.com/MLCRIP/Ill-Eagle
+                """.trimIndent()
+
+                AlertDialog.Builder(ctx)
+                    .setIcon(R.drawable.ic_settings_about_license)
+                    .setTitle(R.string.license)
+                    .setMessage(message)
+                    .setPositiveButton("View Online License") { _, _ ->
+                        val intent = Intent(Intent.ACTION_VIEW, Links.LICENSE.toUri())
+                        ctx.startActivity(intent)
+                    }
+                    .setNegativeButton(R.string.dialog_close, null)
+                    .show()
             },
             icon = R.drawable.ic_settings_about_license
         )

@@ -106,7 +106,7 @@ fun MainSettingsScreen(
                     icon = R.drawable.ic_dictionary
                 ) { NextScreenIcon() }
                 Preference(
-                    name = "Emigrant English Rules",
+                    name = "Ill Eagle Rules",
                     description = EmigrantRulesManager.getActiveRulesetName(LocalContext.current),
                     onClick = onClickEmigrantRules,
                     icon = R.drawable.ic_settings_correction

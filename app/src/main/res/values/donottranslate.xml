@@ -72,6 +72,6 @@
 
     <string name="english_ime_name" translatable="false">Ill Eagle</string>
     <!-- App slogan-->
-    <string name="app_slogan" translatable="false">Emigrant English rule-based keyboard, based on HeliBoard &amp; AOSP.</string>
+    <string name="app_slogan" translatable="false">Offline rule-based custom Android keyboard derived from HeliBoard &amp; AOSP.</string>
 
 </resources>

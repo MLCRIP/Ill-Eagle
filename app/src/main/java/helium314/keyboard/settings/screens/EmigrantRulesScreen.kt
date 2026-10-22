@@ -89,7 +89,7 @@ fun EmigrantRulesScreen(
 
     SearchSettingsScreen(
         onClickBack = onClickBack,
-        title = "Emigrant English Rules",
+        title = "Ill Eagle Rules",
         settings = emptyList()
     ) {
         Scaffold(contentWindowInsets = WindowInsets.safeDrawing.only(WindowInsetsSides.Bottom)) { innerPadding ->
@@ -99,8 +99,8 @@ fun EmigrantRulesScreen(
                     .then(Modifier.padding(innerPadding))
             ) {
                 Preference(
-                    name = "Emigrant Mode",
-                    description = if (modeEnabled) "ON — Transformations active" else "OFF — Standard HeliBoard behavior",
+                    name = "Ill Eagle Mode",
+                    description = if (modeEnabled) "ON — Transformations active" else "OFF — Standard keyboard behavior",
                     onClick = {
                         val newMode = !modeEnabled
                         modeEnabled = newMode
