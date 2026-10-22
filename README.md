@@ -1,6 +1,25 @@
-# HeliBoard
-HeliBoard is a privacy-conscious and customizable open-source keyboard, based on AOSP / OpenBoard.
-Does not use internet permission, and thus is 100% offline.
+# Ill Eagle Keyboard 🦅
+**Ill Eagle** (formerly Emigrant English) is an offline, rule-based custom Android keyboard derived from HeliBoard 4.2-beta1 / AOSP LatinIME.
+
+Its core purpose is to apply humorous or dialectical English transformations (word replacements, suffix adaptations, multiword phrase substitutions, sentence-dependent context rules, and subject-verb grammar modifications) after standard autocorrect, without compromising standard keyboard features, privacy, or performance.
+
+---
+
+## Features
+- **Emigrant Transformation Engine:** Highly configurable rule-based engine with priority evaluation:
+  - **Context Rules:** Multi-word sentence context matches (e.g. `cash` + `bank` -> `river bank`).
+  - **Phrase Rules:** Multiword exact phrase substitutions (e.g. `ill eagle` -> `illegal`).
+  - **Grammar Rules:** Subject-verb pattern adaptations (e.g. `I am` -> `I is`).
+  - **Word Rules:** Single word replacements with optional multi-alternative runtime randomness.
+  - **Automatic Suffixes:** Suffix preservation for modified words (`-s`, `-ing`, `-ed`, `-ly`, etc.).
+- **Transactional Ruleset Import:** Import custom JSON dictionaries safely without affecting active state on error.
+- **Master & Category Switches:** Enable or disable individual rule types on the fly.
+- **RAM-Only History & Privacy First:** Zero cloud interaction, 100% offline, RAM-only history clearing automatically on sentence boundaries.
+
+---
+
+## Based on HeliBoard
+HeliBoard is a privacy-conscious and customizable open-source keyboard, based on AOSP / OpenBoard. It does not use internet permission, and thus is 100% offline.
 
 [<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/helium314.keyboard/)
 [<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Get APK from GitHub" height="80">](https://github.com/HeliBorg/HeliBoard/releases/latest)
