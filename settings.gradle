@@ -1,0 +1,3 @@
+rootProject.name = "Ill-Eagle"
+include ':app'
+include ':tools:make-emoji-keys'

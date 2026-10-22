@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "default_suffixes": {
+    "s": "s",
+    "es": "es",
+    "ed": "ed",
+    "ing": "ing",
+    "ly": "ly",
+    "ity": "ity",
+    "ities": "ities",
+    "ness": "ness",
+    "able": "able",
+    "ful": "ful"
+  },
+  "word_rules": [
+    {
+      "id": "word_illegal",
+      "match": "illegal",
+      "replacement": "ill eagle"
+    },
+    {
+      "id": "word_mistake",
+      "match": "mistake",
+      "replacement": "miss steak"
+    },
+    {
+      "id": "word_message",
+      "match": "message",
+      "replacement": "massage"
+    },
+    {
+      "id": "word_massage",
+      "match": "massage",
+      "replacement": "message"
+    }
+  ],
+  "phrase_rules": [
+    {
+      "id": "phrase_ill_eagle",
+      "match": "ill eagle",
+      "replacement": "illegal"
+    }
+  ],
+  "context_rules": [
+    {
+      "id": "context_cash_bank",
+      "contains": ["cash", "bank"],
+      "target": "bank",
+      "replacement": "river bank"
+    }
+  ],
+  "grammar_rules": [
+    {
+      "id": "grammar_bad_be",
+      "subjects": ["i", "you", "we", "they"],
+      "verb_replacements": {
+        "am": "is",
+        "are": "is"
+      }
+    }
+  ]
+}
