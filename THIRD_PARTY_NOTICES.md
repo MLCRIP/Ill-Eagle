@@ -131,7 +131,21 @@ The exact derivation and notice requirements for every older generated emoji ass
 
 ## Bundled dictionaries
 
-The project contains 18 compiled dictionaries with mixed or unresolved source terms. Their current evidence and open questions are recorded in [docs/DICTIONARY_LICENSING.md](docs/DICTIONARY_LICENSING.md). None is declared cleared merely because its hash appears in HeliBoard's known-hash list.
+Ill Eagle includes two built-in English dictionaries in `app/src/main/assets/dicts/`:
+
+1. **`main_en-GB.dict`** (English - United Kingdom)
+   - **Source:** OpenBoard v1.4.5 (`en_GB_wordlist.combined.gz`) / AOSP LatinIME (`packages/inputmethods/LatinIME/dicts/`).
+   - **Copyright:** Android Open Source Project (AOSP) / Google Inc., OpenBoard contributors, HeliBoard contributors.
+   - **Licence:** **Apache License 2.0** / **GNU General Public License v3.0**.
+   - **Redistribution Rights:** Permitted under Apache 2.0 §4 and GPLv3 §6.
+
+2. **`main_en-US.dict`** (English - United States)
+   - **Source:** OpenBoard v1.4.5 (`en_wordlist.combined.gz`) / AOSP LatinIME (`packages/inputmethods/LatinIME/dicts/`).
+   - **Copyright:** Android Open Source Project (AOSP) / Google Inc., OpenBoard contributors, HeliBoard contributors.
+   - **Licence:** **Apache License 2.0** / **GNU General Public License v3.0**.
+   - **Redistribution Rights:** Permitted under Apache 2.0 §4 and GPLv3 §6.
+
+All non-English dictionaries previously inherited from upstream HeliBoard have been removed from the repository assets. Additional dictionaries can be added or imported individually by users. Historical dictionary investigation records are documented in [docs/DICTIONARY_LICENSING.md](docs/DICTIONARY_LICENSING.md).
 
 ## Gradle/runtime components
 

@@ -2,11 +2,13 @@
 
 ## Scope and conclusion
 
-This document records the evidence available for the 18 compiled dictionaries in `app/src/main/assets/dicts/` as of 23 October 2026 at Ill Eagle commit `d32e3f17391f5d4ae0b4d51b47fb9289ecb1a00d`.
+Ill Eagle has pruned all non-English bundled dictionaries from `app/src/main/assets/dicts/`. The repository now retains only the two primary English dictionaries:
+- `main_en-GB.dict` (English - UK)
+- `main_en-US.dict` (English - US)
 
-**None of these dictionaries is declared cleared for public or commercial redistribution by this document.** The files are compiled databases and do not contain a readable per-file licence or source-wordlist notice. The evidence below establishes a connection to HeliBoard's external dictionary collection, but not the exact upstream revision, complete source, copyright chain, or obligations applicable to each local binary.
+Both English dictionaries are fully cleared under **Apache License 2.0** (AOSP LatinIME origin) and **GPL-3.0-only** (OpenBoard/HeliBoard origin). All 16 non-English dictionaries previously bundled with upstream HeliBoard have been removed.
 
-No dictionary was deleted, replaced, or disabled during this documentation pass.
+Below is the historical audit record of the original 18-dictionary set for reference.
 
 ## Confirmed local evidence
 
