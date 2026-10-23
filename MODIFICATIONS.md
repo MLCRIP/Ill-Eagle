@@ -25,6 +25,7 @@ The 2026 Ill Eagle work includes:
 - Settings navigation and controls for the transformation features.
 - Tests and development documentation for those features.
 - Licence, attribution, navigation, and branding cleanup for future distribution.
+- Independent Android application identity `net.mlcrip.illeagle`, including distinct debug and provider identifiers so Ill Eagle can coexist with HeliBoard.
 
 The detailed implementation history remains available in Git. Files inherited from upstream may also contain their own `modified` markers and SPDX identifiers.
 
@@ -32,7 +33,6 @@ The detailed implementation history remains available in Git. Files inherited fr
 
 As of the date above, the following items are not represented as complete:
 
-- selection of a new Android application ID and provider authorities;
 - clearance or removal of all bundled dictionaries;
 - replacement of the inherited HeliBoard launcher artwork;
 - final release dependency and native-runtime notice collection;
