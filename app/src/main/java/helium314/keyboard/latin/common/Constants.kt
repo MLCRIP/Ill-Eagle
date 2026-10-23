@@ -9,18 +9,24 @@ object Links {
     const val DICTIONARY_EMOJI_CLDR_SUFFIX = "emoji_cldr_signal_dictionaries/"
     const val GITHUB = "https://github.com/MLCRIP/Ill-Eagle"
     const val LICENSE = "$GITHUB/blob/main/LICENSE"
-    const val WIKI_URL = "$GITHUB/wiki"
-    const val LAYOUT_WIKI_URL = "$WIKI_URL/2.-Layouts"
-    const val CUSTOM_LAYOUTS = "$GITHUB/discussions/categories/custom-layout"
-    const val CUSTOM_COLORS = "$GITHUB/discussions/categories/custom-colors"
+    const val THIRD_PARTY_NOTICES = "$GITHUB/blob/main/THIRD_PARTY_NOTICES.md"
+    const val WIKI_URL = "$GITHUB#documentation-and-project-links"
+    const val LAYOUT_WIKI_URL = "$GITHUB/blob/main/layouts.md"
+    const val ISSUES = "$GITHUB/issues"
+    const val UPSTREAM_HELIBOARD = "https://github.com/HeliBorg/HeliBoard"
+    const val UPSTREAM_WIKI = "$UPSTREAM_HELIBOARD/wiki"
+    const val UPSTREAM_CUSTOM_LAYOUTS = "$UPSTREAM_HELIBOARD/discussions/categories/custom-layout"
+    const val UPSTREAM_CUSTOM_COLORS = "$UPSTREAM_HELIBOARD/discussions/categories/custom-colors"
+    const val CUSTOM_LAYOUTS = UPSTREAM_CUSTOM_LAYOUTS
+    const val CUSTOM_COLORS = UPSTREAM_CUSTOM_COLORS
     const val GESTURE_DATA_VIDEO_PEERTUBE = "https://makertube.net/w/cQECfDkuLGR9eUQquUEo4K"
     const val GESTURE_DATA_VIDEO_YOUTUBE = "https://youtu.be/CyjumVTWtJA"
-    const val GESTURE_DATA_WIKI = "$WIKI_URL/Tutorial:-How-to-Contribute-Gesture-Data"
+    const val GESTURE_DATA_WIKI = "$UPSTREAM_WIKI/Tutorial:-How-to-Contribute-Gesture-Data"
     const val BACKGROUND_GESTURE_DATA_VIDEO_PEERTUBE = "https://makertube.net/w/pPywMiF7kjumFfMrQKHzoU"
     const val BACKGROUND_GESTURE_DATA_VIDEO_YOUTUBE = "https://youtu.be/VJLzVEhY2PY"
-    const val BACKGROUND_GESTURE_DATA_WIKI = "$WIKI_URL/Background-Gesture-Data-Gathering"
+    const val BACKGROUND_GESTURE_DATA_WIKI = "$UPSTREAM_WIKI/Background-Gesture-Data-Gathering"
     const val SWIPE_O_SCOPE = "https://codeberg.org/eclexic/swipe-o-scope"
-    const val COMMUNITY_LINKS = "$GITHUB#to-community"
+    const val COMMUNITY_LINKS = ISSUES
 }
 
 val combiningRange = 0x300..0x35b

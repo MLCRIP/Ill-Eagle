@@ -1,3 +1,3 @@
-Please make sure you are at least reasonably close to the contribution guidelines, especially regarding LLM use: https://github.com/HeliBorg/HeliBoard/blob/main/CONTRIBUTING.md#guidelines
-Due to maintainer availability, your PR may take quite some time to be addressed. This especially applies to large PRs.
+Please read the Ill Eagle contribution information before submitting: https://github.com/MLCRIP/Ill-Eagle/blob/main/CONTRIBUTING.md
+Identify the source and licence of any copied or adapted code, data, or artwork. Submission does not guarantee review or acceptance.
 <!-- (please remove the text above before submitting the PR) -->

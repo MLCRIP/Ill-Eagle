@@ -141,7 +141,7 @@ fun ColorThemePickerDialog(
             onDismissRequest = { showLoadDialog = false },
             title = { Text(stringResource(R.string.load)) },
             content = {
-                val link = stringResource(R.string.discussion_section_link).withHtmlLink(Links.CUSTOM_COLORS)
+                val link = stringResource(R.string.discussion_section_link).withHtmlLink(Links.UPSTREAM_CUSTOM_COLORS)
                 val text = stringResource(R.string.get_colors_message, link)
                 Text(text.htmlToAnnotated())
             },

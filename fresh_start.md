@@ -29,9 +29,9 @@
 - Saves active ruleset metadata and individual feature category toggles in `SharedPreferences`.
 
 ### D. Settings UI Integration (`EmigrantRulesScreen.kt`)
-- Accessible via **HeliBoard Settings -> Emigrant English Rules**.
+- Accessible via **Ill Eagle Settings -> Ill Eagle Rules**.
 - Features:
-  - **Master Switch:** Emigrant Mode (ON / OFF). When OFF, keyboard behaves as standard HeliBoard.
+  - **Master Switch:** Ill Eagle Mode (ON / OFF). When OFF, the inherited standard keyboard behaviour remains active without Ill Eagle transformations.
   - **Individual Category Toggles:**
     - Word Replacements (ON / OFF)
     - Automatic Suffixes (ON / OFF)

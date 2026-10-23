@@ -4,20 +4,20 @@ about: Suggest an idea for this project
 labels: enhancement
 ---
 
-Please see the appropriate readme section for issue reporting guidelines: https://github.com/HeliBorg/HeliBoard?tab=readme-ov-file#reporting-issues
+Please see the Ill Eagle contribution information: https://github.com/MLCRIP/Ill-Eagle/blob/main/CONTRIBUTING.md
 tl;dr:
 * search for duplicates, also in closed issues
-* check FAQ / hidden features
+* check the README and existing settings
 * a single issue per topic
 * ONLY add screenshots when necessary, and reduce their size
-* write it yourself
+* verify that the description accurately reflects your intended use case
 
 <!--
 issue template below, please remove above text before submitting (and the template too if you think it's a good idea)
 Please choose a meaningful title for your issue
 -->
 
-<!-- Please check FAQ and hidden features whether what you want is already implemented -->
+<!-- Please check the README and existing settings to see whether this is already implemented. -->
 
 **Is your feature request related to a problem? Please describe.**
 

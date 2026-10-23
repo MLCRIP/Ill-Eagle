@@ -1,4 +1,6 @@
-# AI / LLM Usage
+# Upstream HeliBoard AI / LLM Usage Policy
+
+> **Context for Ill Eagle:** This document was inherited from HeliBoard and is preserved to identify the upstream maintainer's expectations. It governs interaction and contributions directed to upstream HeliBoard; it is not a software licence or an additional GPL term for independent Ill Eagle development. Ill Eagle has not adopted this text as a separate contribution policy. See [CONTRIBUTING.md](CONTRIBUTING.md) for current Ill Eagle contribution information.
 
 AI / LLM usage for code and communication is not completely prohibited, but please don't.
 There are 2 main reasons:

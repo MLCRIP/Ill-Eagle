@@ -112,7 +112,7 @@ fun createAboutSettings(context: Context) = listOf(
                     • Launcher Artwork: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
 
                     Source Code Access:
-                    Full corresponding source code for this app is available on GitHub at:
+                    Full corresponding source code and third-party notices are available on GitHub at:
                     https://github.com/MLCRIP/Ill-Eagle
                 """.trimIndent()
 
@@ -120,8 +120,8 @@ fun createAboutSettings(context: Context) = listOf(
                     .setIcon(R.drawable.ic_settings_about_license)
                     .setTitle(R.string.license)
                     .setMessage(message)
-                    .setPositiveButton("View Online License") { _, _ ->
-                        val intent = Intent(Intent.ACTION_VIEW, Links.LICENSE.toUri())
+                    .setPositiveButton("View licenses and notices") { _, _ ->
+                        val intent = Intent(Intent.ACTION_VIEW, Links.THIRD_PARTY_NOTICES.toUri())
                         ctx.startActivity(intent)
                     }
                     .setNegativeButton(R.string.dialog_close, null)

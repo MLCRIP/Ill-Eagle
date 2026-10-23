@@ -481,7 +481,7 @@ private fun MainLayoutRow(
         if (showAddLayoutDialog) {
             val wikiLink = stringResource(R.string.dictionary_link_text).withHtmlLink(Links.LAYOUT_WIKI_URL)
             val layoutText = stringResource(R.string.message_add_custom_layout, wikiLink).htmlToAnnotated()
-            val discussionLink = stringResource(R.string.discussion_section_link).withHtmlLink(Links.CUSTOM_LAYOUTS)
+            val discussionLink = stringResource(R.string.discussion_section_link).withHtmlLink(Links.UPSTREAM_CUSTOM_LAYOUTS)
             val discussionSectionText = stringResource(R.string.get_layouts_message, discussionLink).htmlToAnnotated()
             val annotated = layoutText + AnnotatedString("\n") + discussionSectionText
 

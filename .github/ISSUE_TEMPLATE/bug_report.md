@@ -4,12 +4,12 @@ about: Create a report to help us improve
 labels: bug
 ---
 
-Please see the appropriate readme section for issue reporting guidelines: https://github.com/HeliBorg/HeliBoard?tab=readme-ov-file#reporting-issues
+Please see the Ill Eagle contribution information: https://github.com/MLCRIP/Ill-Eagle/blob/main/CONTRIBUTING.md
 tl;dr:
 * search for duplicates, also in closed issues
 * a single issue per topic
 * reduce screenshot size
-* write it yourself
+* verify that the description accurately reflects the problem you observed
 
 <!--
 issue template below, please remove above text before submitting (and the template too if you think it's a good idea)

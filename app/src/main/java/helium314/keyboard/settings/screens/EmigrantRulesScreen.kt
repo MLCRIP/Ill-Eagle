@@ -118,8 +118,8 @@ fun EmigrantRulesScreen(
 
                 if (modeEnabled) {
                     Preference(
-                        name = "Word Replacements",
-                        description = "Single word rules (word_rules)",
+                        name = "Word Swaps",
+                        description = "Individual words can be swapped.",
                         onClick = {
                             val newVal = !wordRulesEnabled
                             wordRulesEnabled = newVal
@@ -136,8 +136,8 @@ fun EmigrantRulesScreen(
                     }
 
                     Preference(
-                        name = "Automatic Suffixes",
-                        description = "Apply suffixes (-s, -ing, -ed, -ly) automatically to word rules",
+                        name = "Word Endings",
+                        description = "Common endings stay attached to swapped words.",
                         onClick = {
                             val newVal = !autoSuffixesEnabled
                             autoSuffixesEnabled = newVal
@@ -154,8 +154,8 @@ fun EmigrantRulesScreen(
                     }
 
                     Preference(
-                        name = "Phrase Rules",
-                        description = "Multiword phrase rules (phrase_rules)",
+                        name = "Phrase Swaps",
+                        description = "Multiple words can be swapped together.",
                         onClick = {
                             val newVal = !phraseRulesEnabled
                             phraseRulesEnabled = newVal
@@ -172,8 +172,8 @@ fun EmigrantRulesScreen(
                     }
 
                     Preference(
-                        name = "Context Rules",
-                        description = "Sentence-dependent context rules (context_rules)",
+                        name = "Context-Aware Swaps",
+                        description = "Earlier or later words can trigger swaps.",
                         onClick = {
                             val newVal = !contextRulesEnabled
                             contextRulesEnabled = newVal
@@ -190,8 +190,8 @@ fun EmigrantRulesScreen(
                     }
 
                     Preference(
-                        name = "Grammar Rules",
-                        description = "Grammar & pattern rules (grammar_rules)",
+                        name = "Broken Grammar",
+                        description = "Subject and verb forms can be altered.",
                         onClick = {
                             val newVal = !grammarRulesEnabled
                             grammarRulesEnabled = newVal

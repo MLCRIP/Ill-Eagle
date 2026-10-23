@@ -1,158 +1,77 @@
 # Ill Eagle Keyboard 🦅
-**Ill Eagle** (formerly Emigrant English) is an offline, rule-based custom Android keyboard derived from HeliBoard 4.2-beta1 / AOSP LatinIME.
 
-Its core purpose is to apply humorous or dialectical English transformations (word replacements, suffix adaptations, multiword phrase substitutions, sentence-dependent context rules, and subject-verb grammar modifications) after standard autocorrect, without compromising standard keyboard features, privacy, or performance.
+> **Development status:** Ill Eagle is under active development. No official Ill Eagle APK has been released yet.
 
----
+Ill Eagle is an independent modification of [HeliBoard 4.2-beta1](https://github.com/HeliBorg/HeliBoard), itself derived from OpenBoard and the Android Open Source Project (AOSP) LatinIME. It is maintained by **MLCRIP** and is not affiliated with or endorsed by the HeliBoard, OpenBoard, Google, or AOSP maintainers.
 
-## Features
-- **Emigrant Transformation Engine:** Highly configurable rule-based engine with priority evaluation:
-  - **Context Rules:** Multi-word sentence context matches (e.g. `cash` + `bank` -> `river bank`).
-  - **Phrase Rules:** Multiword exact phrase substitutions (e.g. `ill eagle` -> `illegal`).
-  - **Grammar Rules:** Subject-verb pattern adaptations (e.g. `I am` -> `I is`).
-  - **Word Rules:** Single word replacements with optional multi-alternative runtime randomness.
-  - **Automatic Suffixes:** Suffix preservation for modified words (`-s`, `-ing`, `-ed`, `-ly`, etc.).
-- **Transactional Ruleset Import:** Import custom JSON dictionaries safely without affecting active state on error.
-- **Master & Category Switches:** Enable or disable individual rule types on the fly.
-- **RAM-Only History & Privacy First:** Zero cloud interaction, 100% offline, RAM-only history clearing automatically on sentence boundaries.
+Ill Eagle adds an offline, configurable rules engine that can transform English text after normal keyboard correction. The keyboard does not request Internet permission.
 
----
+## Current features
 
-## Based on HeliBoard
-HeliBoard is a privacy-conscious and customizable open-source keyboard, based on AOSP / OpenBoard. It does not use internet permission, and thus is 100% offline.
+- Single-word swaps with optional alternative replacements.
+- Automatic preservation of common word endings.
+- Multiword phrase swaps.
+- Context-aware swaps triggered by earlier or later words.
+- Subject-and-verb grammar transformations.
+- Transactional import of custom JSON rulesets.
+- Master and per-category controls.
+- RAM-only transformation history that is cleared at sentence and editor boundaries.
 
-[<img src="https://fdroid.gitlab.io/artwork/badge/get-it-on.png" alt="Get it on F-Droid" height="80">](https://f-droid.org/packages/helium314.keyboard/)
-[<img src="https://user-images.githubusercontent.com/663460/26973090-f8fdc986-4d14-11e7-995a-e7c5e79ed925.png" alt="Get APK from GitHub" height="80">](https://github.com/HeliBorg/HeliBoard/releases/latest)
-[<img src="https://gitlab.com/IzzyOnDroid/repo/-/raw/master/assets/IzzyOnDroid.png" alt="Get it on IzzyOnDroid" height="80">](https://apt.izzysoft.de/fdroid/index/apk/helium314.keyboard)
+The inherited HeliBoard feature set includes configurable layouts and themes, multilingual typing, dictionaries, clipboard history, one-handed mode, split keyboard, and backup/restore support.
 
-## Table of Contents
+## Downloads
 
-- [Features](#features)
-- [Contributing](#contributing-)
-   * [Reporting Issues](#reporting-issues)
-   * [Translations](#translations)
-   * [To Community](#to-community)
-   * [Code Contribution](CONTRIBUTING.md)
-- [Links](#links)
-- [License](#license)
-- [Credits](#credits)
-  * [Funding](#funding)
+There is currently **no official Ill Eagle APK or Google Play release**. Do not treat HeliBoard downloads as Ill Eagle builds.
 
-# Features
-<ul>
-  <li>Add dictionaries for suggestions and spell check</li>
-  <ul>
-    <li>build your own, or get them  <a href="https://codeberg.org/Helium314/aosp-dictionaries#dictionaries">here</a> (quality may vary)</li>
-    <li>additional dictionaries for emojis or scientific symbols can be used to provide suggestions (similar to "emoji search")</li>
-    <li>note that for Korean layouts, suggestions only work using <a href="https://github.com/openboard-team/openboard/commit/83fca9533c03b9fecc009fc632577226bbd6301f">this dictionary</a>, the tools in the dictionary repository are not able to create working dictionaries</li>
-  </ul>
-  <li>Customize keyboard themes (style, colors and background image)</li>
-  <li>Emoji search (inline and separate, requires <a href="https://codeberg.org/Helium314/aosp-dictionaries">emoji dictionary</a>)</li>
-  <ul>
-    <li>can follow the system's day/night setting on Android 10+ (and on some versions of Android 9)</li>
-    <li>can follow dynamic colors for Android 12+</li>
-  </ul>
-  <li>Customize keyboard <a href="https://github.com/HeliBorg/HeliBoard/blob/main/layouts.md">layouts</a> (only available when disabling <i>use system languages</i>)</li>
-  <li>Customize special layouts, like symbols, number,  or functional key layout</li>
-  <li>Multilingual typing</li>
-  <li>Glide typing (<i>only with closed source library</i> ☹️)</li>
-  <ul>
-    <li>library not included in the app, as there is no compatible open source library available</li>
-    <li>can be extracted from GApps packages ("<i>swypelibs</i>"), or downloaded <a href="https://github.com/erkserkserks/openboard/tree/46fdf2b550035ca69299ce312fa158e7ade36967/app/src/main/jniLibs">here</a> (click on the file and then "raw" or the tiny download button)</li>
-  </ul>
-  <li>Clipboard history</li>
-  <li>One-handed mode</li>
-  <li>Split keyboard</li>
-  <li>Number pad</li>
-  <li>Backup and restore your settings and learned word / history data</li>
-</ul>
+When a public build is ready, it will be published through the [Ill Eagle releases page](https://github.com/MLCRIP/Ill-Eagle/releases) together with a link to the exact corresponding source code and applicable third-party notices.
 
-For [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ), [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features) and more information about the app and features, please visit the [wiki](https://github.com/HeliBorg/HeliBoard/wiki)
+## Documentation and project links
 
-# Contributing ❤
+- [Source code](https://github.com/MLCRIP/Ill-Eagle)
+- [Report an Ill Eagle issue](https://github.com/MLCRIP/Ill-Eagle/issues)
+- [Modification history](MODIFICATIONS.md)
+- [Third-party notices](THIRD_PARTY_NOTICES.md)
+- [Bundled dictionary licensing status](docs/DICTIONARY_LICENSING.md)
+- [Keyboard layout documentation](layouts.md)
+- [Contribution information](CONTRIBUTING.md)
 
-## Reporting Issues
+Ill Eagle does not currently claim an established contributor community, support forum, wiki, or translation service.
 
-Whether you encountered a bug, or want to see a new feature in HeliBoard, you can contribute to the project by opening a new issue [here](https://github.com/HeliBorg/HeliBoard/issues). Your help is always welcome!
+## Building
 
-Before opening a new issue, be sure to check the following:
- - **Does the issue already exist?** Make sure a similar issue has not been reported by browsing [existing issues](https://github.com/HeliBorg/HeliBoard/issues?q=). Please search open and closed issues. In case of feature requests you could also check the [FAQ](https://github.com/HeliBorg/HeliBoard/wiki/FAQ) and [hidden features](https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features).
- - **Is the issue still relevant?** Make sure your issue is not already fixed in the latest version of HeliBoard.
- - **Is it a single topic?** If you want to suggest multiple things, open multiple issues.
- - **Did you use the issue template?** It is important to make life of our kind contributors easier by avoiding issues that miss key information to their resolution.
- - **Is it written by a human?** Do not use LLMs or similar to generate issues. Having LLMs help with translation or similar is acceptable, but must be disclosed. See also [AI_USAGE.md](AI_USAGE.md)
-Note that issues that that ignore part of the issue template will likely get treated with very low priority, as often they are needlessly hard to read or understand (e.g. huge screenshots, not providing a proper description, or addressing multiple topics). Blatant violation of the guidelines may result in the issue getting closed.
+The project is built with Gradle and the Android toolchain. The checked-in build scripts are the authoritative build configuration. A release build should not be distributed until its package identity, bundled dictionaries, dependency notices, signing, and exact corresponding source have been reviewed.
 
-If you're interested, you can read the following useful text about effective bug reporting (a bit longer read): https://www.chiark.greenend.org.uk/~sgtatham/bugs.html
+## Licensing
 
-## Translations
-Translations can be added using [Weblate](https://translate.codeberg.org/projects/heliboard/). You will need an account to update translations and add languages. Add the language you want to translate to in Languages -> Manage translated languages in the top menu bar.
-Updating translations in a PR will not be accepted, as it may cause conflicts with Weblate translations.
+Ill Eagle is a modified HeliBoard work. The combined program, including the Ill Eagle modifications, is distributed under **GNU General Public License version 3 only (`GPL-3.0-only`)**. See [LICENSE](LICENSE).
 
-Some notes on translations
-* when translating metadata, translating the changelogs is rather useless. It's available as it was requested by translators.
-* the `hidden_features_message` is horrible to translate with Weblate, and serves little benefit as it's just a copy of what's already in the wiki: https://github.com/HeliBorg/HeliBoard/wiki/9.-Hidden-features. It's been made available in the app on user request/contribution.
+The repository is not offered as a choice of GPL, Apache, and Creative Commons licences. Individual incorporated components retain their applicable licences, including Apache-2.0, MIT, CC BY-SA 4.0, and other terms identified in [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). See also:
 
-## To Community
-There is the [discussions on GitHub](https://github.com/HeliBorg/HeliBoard/discussions), or if you prefer a more open network there is [Lemmy](https://lemmy.world/c/Heliboard).
-You can share your themes, layouts and dictionaries with other people:
-* Themes can be saved and loaded using the menu on top-right in the _adjust colors_ screen
-  * you can share custom colors in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-colors)
-  * there are theme collections available at [Star-Trowa/heliboard-themes](https://github.com/Star-Trowa/heliboard-themes) and [PickleHik3/droid-tings](https://github.com/PickleHik3/droid-tings)
-* Custom keyboard layouts are text files whose content you can edit, copy and share
-  * this applies to main keyboard layouts and to special layouts adjustable in advanced settings
-  * see [layouts.md](layouts.md) for details
-  * you can share custom layouts in a separate [discussion section](https://github.com/HeliBorg/HeliBoard/discussions/categories/custom-layout)
-  * [Roccobot's Layout Maker](https://roccobot.github.io/HeliBoard-RLM/) is a browser-based editor for json layout files
-* Creating dictionaries is a little more work
-  * first you will need a wordlist, as described [here](https://codeberg.org/Helium314/aosp-dictionaries/src/branch/main/wordlists/sample.combined) and in the repository readme
-  * the you need to compile the dictionary using [external tools](https://github.com/remi0s/aosp-dictionary-tools)
-  * the resulting file (and ideally the wordlist too) can be shared with other users
-  * note that there will not be any further dictionaries added to this app, but you can add dictionaries to the [dictionaries repository](https://codeberg.org/Helium314/aosp-dictionaries)
+- [Apache License 2.0](LICENSE-Apache-2.0), retained for AOSP-derived material and applicable dependencies.
+- [Creative Commons Attribution-ShareAlike 4.0](LICENSE-CC-BY-SA-4.0), applicable to the inherited launcher artwork.
+- [Bundled dictionary licensing status](docs/DICTIONARY_LICENSING.md), which records unresolved provenance and redistribution questions.
 
-## Code Contribution
-See [Contribution Guidelines](CONTRIBUTING.md)
+The repository and its public availability do not by themselves resolve the separate licensing requirements of every bundled dictionary or dependency. No claim is made that the project is ready for compliant binary redistribution while the unresolved items remain.
 
-# Links
-* Info
-  * [Wiki](https://github.com/HeliBorg/HeliBoard/wiki), including FAQ, help on customizing layouts, and gesture data gathering
-  * [Layout documentation](layouts.md) (more technical info regarding layout customization)
-  * [For creating custom dictionaries](https://codeberg.org/Helium314/aosp-dictionaries#wordlist-information) (see also top of the linked readme)
-* Community
-  * [Lemmy](https://lemmy.world/c/Heliboard)
-  * [Reddit](https://www.reddit.com/r/HeliBoard)
-  * GitHub [discussions](https://github.com/HeliBorg/HeliBoard/discussions)
-* Other
-  * [Translations](https://translate.codeberg.org/projects/heliboard/)
-  * [Dictionaries](https://codeberg.org/Helium314/aosp-dictionaries)
-  * [k3lp](https://codeberg.org/k3lp/k3lp) is a WIP library for keyboard layout parsing that will be implemented in HeliBoard when ready (created by [FlorisBoard](https://github.com/florisboard/florisboard/) maintainers)
-  * [swipe-o-scope](https://codeberg.org/eclexic/swipe-o-scope) for visualizing gesture data as created when using gesture data gathering
+## Upstream projects and resources
 
-# License
+These links lead to upstream projects. Their releases, issue trackers, wikis, discussions, contribution rules, and AI policies do not represent Ill Eagle releases or project policies.
 
-HeliBoard (as a fork of OpenBoard) is licensed under GNU General Public License v3.0.
-
- > Permissions of this strong copyleft license are conditioned on making available complete source code of licensed works and modifications, which include larger works using a licensed work, under the same license. Copyright and license notices must be preserved. Contributors provide an express grant of patent rights.
-
-See repo's [LICENSE](/LICENSE) file.
-
-Since the app is based on Apache 2.0 licensed AOSP Keyboard, an [Apache 2.0](LICENSE-Apache-2.0) license file is provided.
-The icon is licensed under [Creative Commons BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/). A [license file](LICENSE-CC-BY-SA-4.0) is also included.
-
-# Credits
-- Icon by [Fabian OvrWrt](https://github.com/FabianOvrWrt) with contributions from [The Eclectic Dyslexic](https://github.com/the-eclectic-dyslexic)
+- [HeliBoard source](https://github.com/HeliBorg/HeliBoard)
+- [HeliBoard wiki](https://github.com/HeliBorg/HeliBoard/wiki)
+- [HeliBoard discussions](https://github.com/HeliBorg/HeliBoard/discussions)
+- [HeliBoard dictionary collection](https://codeberg.org/Helium314/aosp-dictionaries)
 - [OpenBoard](https://github.com/openboard-team/openboard)
-- [AOSP Keyboard](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/)
-- [LineageOS](https://review.lineageos.org/admin/repos/LineageOS/android_packages_inputmethods_LatinIME)
-- [Simple Keyboard](https://github.com/rkkr/simple-keyboard)
-- [Indic Keyboard](https://gitlab.com/indicproject/indic-keyboard)
-- [FlorisBoard](https://github.com/florisboard/florisboard/)
-- Our [contributors](https://github.com/HeliBorg/HeliBoard/graphs/contributors)
+- [AOSP LatinIME](https://android.googlesource.com/platform/packages/inputmethods/LatinIME/)
 
-## Funding
+## Credits
 
-This project is funded through [NGI Mobifree Fund](https://nlnet.nl/mobifree), a fund established by [NLnet](https://nlnet.nl) with financial support from the European Commission's [Next Generation Internet](https://ngi.eu) program. Learn more at the [NLnet project page](https://nlnet.nl/project/GestureTyping).
+- HeliBoard and its contributors.
+- OpenBoard and its contributors.
+- The Android Open Source Project LatinIME contributors.
+- LineageOS, Simple Keyboard, Indic Keyboard, and FlorisBoard contributors whose work is represented in the inherited source history and notices.
+- Launcher icon by [Fabian OvrWrt](https://github.com/FabianOvrWrt), with contributions from [The Eclectic Dyslexic](https://github.com/the-eclectic-dyslexic), licensed under CC BY-SA 4.0.
+- Bengali Khipro input method by `rank_coder`, licensed under MIT terms preserved in the source and third-party notices.
+- Emoji regular-expression material by [Mathias Bynens](https://mathiasbynens.be/), licensed under MIT terms.
 
-[<img src="https://nlnet.nl/logo/banner.png" alt="NLnet foundation logo" width="20%" />](https://nlnet.nl)
-
-Further the project benefits from donations provided by many users (thank you all!).
+Copyright © 2026 MLCRIP for the Ill Eagle modifications. Existing upstream copyright notices remain applicable to their respective material.
