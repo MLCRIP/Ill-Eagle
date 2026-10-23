@@ -57,6 +57,12 @@ fun MainSettingsScreen(
                 Modifier.verticalScroll(rememberScrollState()).then(Modifier.padding(innerPadding))
             ) {
                 Preference(
+                    name = "Ill Eagle Rules",
+                    description = EmigrantRulesManager.getActiveRulesetName(LocalContext.current),
+                    onClick = onClickEmigrantRules,
+                    icon = R.drawable.ic_settings_correction
+                ) { NextScreenIcon() }
+                Preference(
                     name = stringResource(R.string.language_and_layouts_title),
                     description = enabledSubtypes.joinToString(", ") { it.displayName() },
                     onClick = onClickLanguage,
@@ -104,12 +110,6 @@ fun MainSettingsScreen(
                     name = stringResource(R.string.dictionary_settings_category),
                     onClick = onClickDictionaries,
                     icon = R.drawable.ic_dictionary
-                ) { NextScreenIcon() }
-                Preference(
-                    name = "Ill Eagle Rules",
-                    description = EmigrantRulesManager.getActiveRulesetName(LocalContext.current),
-                    onClick = onClickEmigrantRules,
-                    icon = R.drawable.ic_settings_correction
                 ) { NextScreenIcon() }
                 Preference(
                     name = stringResource(R.string.settings_screen_advanced),

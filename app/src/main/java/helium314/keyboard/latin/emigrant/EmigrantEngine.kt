@@ -94,6 +94,7 @@ data class EmigrantWord(
     val separator: String,
     val isEmigrantGenerated: Boolean = false,
     val contextApplied: Boolean = false,
+    val appliedContextSpecificity: Int = 0,
     val ruleCategory: RuleCategory = RuleCategory.NONE
 )
 
@@ -709,6 +710,7 @@ class EmigrantEngine private constructor() {
         var appliedCategory = wordProcessed.category
 
         var contextApplied = false
+        var appliedContextSpecificity = 0
 
         synchronized(this) {
             // Apply deferred pending sentence reset if previous word/punctuation ended a sentence
@@ -748,6 +750,7 @@ class EmigrantEngine private constructor() {
                     separator = separator,
                     isEmigrantGenerated = isEmigrantGenerated,
                     contextApplied = false,
+                    appliedContextSpecificity = 0,
                     ruleCategory = appliedCategory
                 )
                 candidateSentence.add(testEntry)
@@ -769,13 +772,14 @@ class EmigrantEngine private constructor() {
                             }
                         }
                         if (allPresent) {
-                            if (!testEntry.contextApplied) {
+                            if (!testEntry.contextApplied || rule.contains.size > testEntry.appliedContextSpecificity) {
                                 val selectedReplacement = rule.selectReplacement(random)
                                 transformed = preserveCase(candidateTypedWord, selectedReplacement)
                                 isEmigrantGenerated = true
                                 contextApplied = true
+                                appliedContextSpecificity = rule.contains.size
                                 appliedCategory = RuleCategory.CONTEXT
-                                Log.i(TAG, "Applied forward context rule '${rule.id}'")
+                                Log.i(TAG, "Applied forward context rule '${rule.id}' (specificity ${rule.contains.size})")
                                 break
                             }
                         }
@@ -790,6 +794,7 @@ class EmigrantEngine private constructor() {
                 separator = if (separator.isNotEmpty()) separator else " ",
                 isEmigrantGenerated = isEmigrantGenerated,
                 contextApplied = contextApplied,
+                appliedContextSpecificity = if (contextApplied) appliedContextSpecificity else 0,
                 ruleCategory = appliedCategory
             )
 
@@ -878,10 +883,11 @@ class EmigrantEngine private constructor() {
                 }
                 if (!allPresent) continue
 
-                // Check if target word is an UNPROCESSED earlier entry in sentenceHistory (not the last word)
+                // Check if target word is an earlier entry in sentenceHistory (not the last word)
+                // Eligible if rule has strictly higher specificity (rule.contains.size) than any previously applied context rule on that entry
                 val targetIndex = (0 until sentenceHistory.size - 1).firstOrNull { i ->
                     val entry = sentenceHistory[i]
-                    !entry.contextApplied && (
+                    (rule.contains.size > entry.appliedContextSpecificity) && (
                         entry.displayedWord.lowercase(Locale.ROOT) == rule.target ||
                         entry.typedWord.lowercase(Locale.ROOT) == rule.target
                     )
@@ -934,6 +940,7 @@ class EmigrantEngine private constructor() {
                         displayedWord = replacementWord,
                         isEmigrantGenerated = true,
                         contextApplied = true,
+                        appliedContextSpecificity = rule.contains.size,
                         ruleCategory = RuleCategory.CONTEXT
                     )
                     sentenceHistory[targetIndex] = updatedEntry
@@ -944,11 +951,12 @@ class EmigrantEngine private constructor() {
                             displayedWord = replacementWord,
                             isEmigrantGenerated = true,
                             contextApplied = true,
+                            appliedContextSpecificity = rule.contains.size,
                             ruleCategory = RuleCategory.CONTEXT
                         )
                     }
 
-                    Log.i(TAG, "Applied reverse context rule '${rule.id}'")
+                    Log.i(TAG, "Applied reverse context rule '${rule.id}' (specificity ${rule.contains.size})")
                     return true
                 } else {
                     Log.w(TAG, "Reverse context rule '${rule.id}' skipped due to editor text mismatch")

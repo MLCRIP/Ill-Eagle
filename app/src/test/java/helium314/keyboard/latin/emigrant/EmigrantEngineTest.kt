@@ -534,4 +534,107 @@ class EmigrantEngineTest {
         assertEquals("massage", engine.processWord("message"))
         assertEquals("message", engine.processWord("massage"))
     }
+
+    @Test
+    fun testMilestone8Step1_StrongerContextRuleOverridesWeakerContextReplacement() {
+        val engine = EmigrantEngine.instance
+        val connection = Mockito.mock(RichInputConnection::class.java)
+
+        // Step 1: Type "traffic jam" -> "jam" becomes "strawberry jam" (weaker 2-word context rule)
+        engine.processWordCommit("traffic", "traffic", " ")
+        val res1 = engine.processWordCommit("jam", "jam", " ")
+        assertEquals("strawberry jam", res1.wordToCommit)
+
+        // Step 2: Continue typing "heavy" -> stronger 3-word context rule ("jam", "traffic", "heavy")
+        // Target is "jam", rule specificity = 3 > 2.
+        engine.processWordCommit("heavy", "heavy", " ")
+
+        // Mock editor text before cursor: "strawberry jam heavy" (target "jam" was previously "strawberry jam")
+        Mockito.`when`(connection.getTextBeforeCursor(Mockito.eq("strawberry jam heavy".length), Mockito.anyInt()))
+            .thenReturn("strawberry jam heavy")
+
+        val upgraded = engine.evaluatePhraseRulesAfterCommit(connection)
+        assertTrue(upgraded, "Stronger context rule should upgrade earlier weaker context replacement")
+
+        Mockito.verify(connection).deleteTextBeforeCursor("strawberry jam heavy".length)
+        Mockito.verify(connection).commitText("heavy traffic jam heavy", 1)
+    }
+
+    @Test
+    fun testMilestone8Step1_RegularWordReplacementOverriddenByContext() {
+        val engine = EmigrantEngine.instance
+        val connection = Mockito.mock(RichInputConnection::class.java)
+
+        // Step 1: Type "jam" -> "jelly" (word rule, specificity 0)
+        val res1 = engine.processWordCommit("jam", "jam", " ")
+        assertEquals("jelly", res1.wordToCommit)
+
+        // Step 2: Type "in" and "traffic" -> reverse context rule ("jam", "traffic", specificity 2 > 0)
+        engine.processWordCommit("in", "in", " ")
+        engine.processWordCommit("traffic", "traffic", " ")
+
+        // Mock editor text: "jelly in traffic"
+        Mockito.`when`(connection.getTextBeforeCursor(Mockito.eq("jelly in traffic".length), Mockito.anyInt()))
+            .thenReturn("jelly in traffic")
+
+        val applied = engine.evaluatePhraseRulesAfterCommit(connection)
+        assertTrue(applied, "Context rule should override regular word replacement")
+
+        Mockito.verify(connection).deleteTextBeforeCursor("jelly in traffic".length)
+        Mockito.verify(connection).commitText("strawberry jam in traffic", 1)
+    }
+
+    @Test
+    fun testMilestone8Step1_EqualSpecificityRulesDoNotReroll() {
+        val engine = EmigrantEngine.instance
+        val connection = Mockito.mock(RichInputConnection::class.java)
+
+        // Type "traffic jam" -> "strawberry jam" (specificity 2)
+        engine.processWordCommit("traffic", "traffic", " ")
+        engine.processWordCommit("jam", "jam", " ")
+
+        // Type "now" (no new context rule)
+        engine.processWordCommit("now", "now", " ")
+
+        // Evaluate context rules again
+        val rerolled = engine.evaluatePhraseRulesAfterCommit(connection)
+        assertFalse(rerolled, "Equal or lower specificity rules should not trigger unnecessary rerolls")
+    }
+
+    @Test
+    fun testMilestone8Step1_SentenceBoundaryPreventsInappropriateUpgrades() {
+        val engine = EmigrantEngine.instance
+        val connection = Mockito.mock(RichInputConnection::class.java)
+
+        // Type "traffic jam." with sentence boundary punctuation
+        engine.processWordCommit("traffic", "traffic", " ")
+        engine.processWordCommit("jam", "jam", ". ") // Period triggers deferred sentence reset
+
+        engine.evaluatePhraseRulesAfterCommit(connection)
+
+        // Type "heavy" in the new sentence
+        engine.processWordCommit("heavy", "heavy", " ")
+
+        val upgraded = engine.evaluatePhraseRulesAfterCommit(connection)
+        assertFalse(upgraded, "Sentence boundary should prevent context upgrades across sentences")
+    }
+
+    @Test
+    fun testMilestone8Step1_EditorTextMismatchCancelsUpgradeSafely() {
+        val engine = EmigrantEngine.instance
+        val connection = Mockito.mock(RichInputConnection::class.java)
+
+        engine.processWordCommit("traffic", "traffic", " ")
+        engine.processWordCommit("jam", "jam", " ")
+        engine.processWordCommit("heavy", "heavy", " ")
+
+        // Mock editor text before cursor has a mismatch (user deleted or edited text)
+        Mockito.`when`(connection.getTextBeforeCursor(Mockito.anyInt(), Mockito.anyInt()))
+            .thenReturn("different text in editor")
+
+        val upgraded = engine.evaluatePhraseRulesAfterCommit(connection)
+        assertFalse(upgraded, "Editor text mismatch should safely cancel the upgrade without modifying text")
+
+        Mockito.verify(connection, Mockito.never()).deleteTextBeforeCursor(Mockito.anyInt())
+    }
 }
