@@ -45,6 +45,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 import androidx.core.content.edit
 import helium314.keyboard.latin.utils.IntentUtils
+import helium314.keyboard.settings.SettingsDestination
 import java.util.Locale
 
 @Composable
@@ -96,36 +97,13 @@ fun createAboutSettings(context: Context) = listOf(
         )
     },
     Setting(context, SettingsWithoutKey.LICENSE, R.string.license, R.string.gnu_gpl) {
-        val ctx = LocalContext.current
         Preference(
-            name = it.title,
-            description = it.description,
+            name = "Licences & Credits",
+            description = "Read offline licenses, third-party notices, and modifications",
             onClick = {
-                val message = """
-                    Ill Eagle is an offline, rule-based custom Android keyboard derived from HeliBoard 4.2-beta1 / AOSP LatinIME.
-
-                    Licensing Requirements & Open Source Credits:
-                    • Ill Eagle & HeliBoard / OpenBoard: GNU General Public License v3.0 (GPL-3.0-only).
-                    • Android Open Source Project (AOSP) LatinIME: Apache License 2.0.
-                    • Bengali Khipro Input Method: MIT License (Copyright 2024 rank_coder).
-                    • Emoji Regex Pattern: MIT License.
-                    • Launcher Artwork: Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0).
-
-                    Source Code Access:
-                    Full corresponding source code and third-party notices are available on GitHub at:
-                    https://github.com/MLCRIP/Ill-Eagle
-                """.trimIndent()
-
-                AlertDialog.Builder(ctx)
-                    .setIcon(R.drawable.ic_settings_about_license)
-                    .setTitle(R.string.license)
-                    .setMessage(message)
-                    .setPositiveButton("View licenses and notices") { _, _ ->
-                        val intent = Intent(Intent.ACTION_VIEW, Links.THIRD_PARTY_NOTICES.toUri())
-                        ctx.startActivity(intent)
-                    }
-                    .setNegativeButton(R.string.dialog_close, null)
-                    .show()
+                SettingsDestination.navigateTo(
+                    SettingsDestination.Licenses
+                )
             },
             icon = R.drawable.ic_settings_about_license
         )

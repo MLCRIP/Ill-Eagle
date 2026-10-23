@@ -25,6 +25,7 @@ import helium314.keyboard.settings.screens.DictionaryScreen
 import helium314.keyboard.settings.screens.EmigrantRulesScreen
 import helium314.keyboard.settings.screens.GestureTypingScreen
 import helium314.keyboard.settings.screens.LanguageScreen
+import helium314.keyboard.settings.screens.LicensesScreen
 import helium314.keyboard.settings.screens.MainSettingsScreen
 import helium314.keyboard.settings.screens.PersonalDictionariesScreen
 import helium314.keyboard.settings.screens.PersonalDictionaryScreen
@@ -85,6 +86,9 @@ fun SettingsNavHost(
         }
         composable(SettingsDestination.About) {
             AboutScreen(onClickBack = ::goBack)
+        }
+        composable(SettingsDestination.Licenses) {
+            LicensesScreen(onClickBack = ::goBack)
         }
         composable(SettingsDestination.TextCorrection) {
             TextCorrectionScreen(onClickBack = ::goBack)
@@ -170,6 +174,7 @@ object SettingsDestination {
     const val Layouts = "layouts"
     const val Dictionaries = "dictionaries"
     const val EmigrantRules = "emigrant_rules"
+    const val Licenses = "licenses"
     val navTarget = MutableStateFlow(Settings)
 
     private val navScope = CoroutineScope(Dispatchers.Default)

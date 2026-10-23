@@ -1,10 +1,24 @@
 import com.android.build.api.variant.ApplicationVariant
+import java.util.Properties
 
 plugins {
     id("com.android.application")
     kotlin("plugin.serialization") version "2.4.0"
     kotlin("plugin.compose") version "2.4.0"
 }
+
+val versionPropsFile = rootProject.file("version.properties")
+val versionProps = Properties().apply {
+    if (versionPropsFile.exists()) {
+        versionPropsFile.inputStream().use { load(it) }
+    }
+}
+val vMajor = versionProps.getProperty("version.major", "0")
+val vFeature = versionProps.getProperty("version.feature", "0")
+val vImprovement = versionProps.getProperty("version.improvement", "0")
+val vFix = versionProps.getProperty("version.fix", "0")
+val vBuild = versionProps.getProperty("version.build", "0")
+val vCode = versionProps.getProperty("version.code", "4200").toInt()
 
 android {
     compileSdk = 37
@@ -13,8 +27,8 @@ android {
         applicationId = "net.mlcrip.illeagle"
         minSdk = 21
         targetSdk = 37
-        versionCode = 4200
-        versionName = "v0.0.0.0.0"
+        versionCode = vCode
+        versionName = "v${vMajor}.${vFeature}.${vImprovement}.${vFix}.${vBuild}"
         ndk {
             abiFilters.clear()
             abiFilters.addAll(listOf("armeabi-v7a", "arm64-v8a", "x86", "x86_64"))
@@ -112,6 +126,17 @@ android {
     lint {
         abortOnError = true
     }
+}
+
+val copyLegalDocs = tasks.register<Copy>("copyLegalDocs") {
+    from(rootProject.projectDir) {
+        include("LICENSE", "LICENSE-Apache-2.0", "LICENSE-CC-BY-SA-4.0", "THIRD_PARTY_NOTICES.md", "MODIFICATIONS.md")
+    }
+    into(layout.projectDirectory.dir("src/main/assets/licenses"))
+}
+
+tasks.named("preBuild") {
+    dependsOn(copyLegalDocs)
 }
 
 dependencies {
